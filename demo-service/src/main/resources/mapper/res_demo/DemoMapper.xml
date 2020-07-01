@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.duobaoyu.messagecenter.mapper.res_demo.DemoMapper">
+
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.duobaoyu.messagecenter.entity.Demo">
+                    <id column="id" property="id"/>
+                    <result column="detail_no" property="detailNo"/>
+                    <result column="summary_no" property="summaryNo"/>
+                    <result column="template_no" property="templateNo"/>
+                    <result column="template_title" property="templateTitle"/>
+                    <result column="template_type" property="templateType"/>
+                    <result column="emp_id" property="empId"/>
+                    <result column="emp_name" property="empName"/>
+                    <result column="emp_code" property="empCode"/>
+                    <result column="send_status" property="sendStatus"/>
+                    <result column="is_read" property="isRead"/>
+                    <result column="msg_content" property="msgContent"/>
+                    <result column="ext" property="ext"/>
+                    <result column="dep_no" property="depNo"/>
+                    <result column="dep_name" property="depName"/>
+                    <result column="push_time" property="pushTime"/>
+                    <result column="push_type" property="pushType"/>
+                    <result column="is_push_to_dd" property="isPushToDd"/>
+                    <result column="url" property="url"/>
+                    <result column="url_params" property="urlParams"/>
+                    <result column="template_tag" property="templateTag"/>
+                    <result column="request_id" property="requestId"/>
+                    <result column="out_id" property="outId"/>
+                    <result column="event_type" property="eventType"/>
+        </resultMap>
+
+    <sql id="Base_Column_List">
+        <trim prefix="" suffix="" suffixOverrides=",">
+                    id,
+                    detail_no,
+                    summary_no,
+                    template_no,
+                    template_title,
+                    template_type,
+                    emp_id,
+                    emp_name,
+                    emp_code,
+                    send_status,
+                    is_read,
+                    msg_content,
+                    ext,
+                    dep_no,
+                    dep_name,
+                    push_time,
+                    push_type,
+                    is_push_to_dd,
+                    url,
+                    url_params,
+                    template_tag,
+                    request_id,
+                    out_id,
+                    event_type,
+        </trim>
+    </sql>
+
+        <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+    insert into dp_internal_message_send_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+                detail_no,
+                summary_no,
+                template_no,
+                template_title,
+                template_type,
+                emp_id,
+                emp_name,
+                emp_code,
+                send_status,
+                is_read,
+                msg_content,
+                ext,
+                dep_no,
+                dep_name,
+                push_time,
+                push_type,
+                is_push_to_dd,
+                url,
+                url_params,
+                template_tag,
+                request_id,
+                out_id,
+                event_type,
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+                #{detailNo},
+                #{summaryNo},
+                #{templateNo},
+                #{templateTitle},
+                #{templateType},
+                #{empId},
+                #{empName},
+                #{empCode},
+                #{sendStatus},
+                #{isRead},
+                #{msgContent},
+                #{ext},
+                #{depNo},
+                #{depName},
+                #{pushTime},
+                #{pushType},
+                #{isPushToDd},
+                #{url},
+                #{urlParams},
+                #{templateTag},
+                #{requestId},
+                #{outId},
+                #{eventType},
+    </trim>
+</insert>
+
+        <insert id="insertList" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+    insert into dp_internal_message_send_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+                detail_no,
+                summary_no,
+                template_no,
+                template_title,
+                template_type,
+                emp_id,
+                emp_name,
+                emp_code,
+                send_status,
+                is_read,
+                msg_content,
+                ext,
+                dep_no,
+                dep_name,
+                push_time,
+                push_type,
+                is_push_to_dd,
+                url,
+                url_params,
+                template_tag,
+                request_id,
+                out_id,
+                event_type,
+    </trim>
+    values
+    <foreach collection="list" item="item" index="index" separator=",">
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                    #{item.detailNo},
+                    #{item.summaryNo},
+                    #{item.templateNo},
+                    #{item.templateTitle},
+                    #{item.templateType},
+                    #{item.empId},
+                    #{item.empName},
+                    #{item.empCode},
+                    #{item.sendStatus},
+                    #{item.isRead},
+                    #{item.msgContent},
+                    #{item.ext},
+                    #{item.depNo},
+                    #{item.depName},
+                    #{item.pushTime},
+                    #{item.pushType},
+                    #{item.isPushToDd},
+                    #{item.url},
+                    #{item.urlParams},
+                    #{item.templateTag},
+                    #{item.requestId},
+                    #{item.outId},
+                    #{item.eventType},
+        </trim>
+    </foreach>
+</insert>
+
+    <update id="updateById">
+        update dp_internal_message_send_detail set
+        <trim prefix="" suffix="" suffixOverrides=",">
+                    detail_no = #{detailNo},
+                    summary_no = #{summaryNo},
+                    template_no = #{templateNo},
+                    template_title = #{templateTitle},
+                    template_type = #{templateType},
+                    emp_id = #{empId},
+                    emp_name = #{empName},
+                    emp_code = #{empCode},
+                    send_status = #{sendStatus},
+                    is_read = #{isRead},
+                    msg_content = #{msgContent},
+                    ext = #{ext},
+                    dep_no = #{depNo},
+                    dep_name = #{depName},
+                    push_time = #{pushTime},
+                    push_type = #{pushType},
+                    is_push_to_dd = #{isPushToDd},
+                    url = #{url},
+                    url_params = #{urlParams},
+                    template_tag = #{templateTag},
+                    request_id = #{requestId},
+                    out_id = #{outId},
+                    event_type = #{eventType},
+        </trim>
+        <where>
+                    and id = #{id}
+        </where>
+    </update>
+
+    <update id="updateByIdSelective">
+        update dp_internal_message_send_detail set
+        <trim prefix="" suffix="" suffixOverrides=",">
+                    <if test="detailNo != null">
+                        detail_no = #{detailNo},
+                    </if>
+                    <if test="summaryNo != null">
+                        summary_no = #{summaryNo},
+                    </if>
+                    <if test="templateNo != null">
+                        template_no = #{templateNo},
+                    </if>
+                    <if test="templateTitle != null">
+                        template_title = #{templateTitle},
+                    </if>
+                    <if test="templateType != null">
+                        template_type = #{templateType},
+                    </if>
+                    <if test="empId != null">
+                        emp_id = #{empId},
+                    </if>
+                    <if test="empName != null">
+                        emp_name = #{empName},
+                    </if>
+                    <if test="empCode != null">
+                        emp_code = #{empCode},
+                    </if>
+                    <if test="sendStatus != null">
+                        send_status = #{sendStatus},
+                    </if>
+                    <if test="isRead != null">
+                        is_read = #{isRead},
+                    </if>
+                    <if test="msgContent != null">
+                        msg_content = #{msgContent},
+                    </if>
+                    <if test="ext != null">
+                        ext = #{ext},
+                    </if>
+                    <if test="depNo != null">
+                        dep_no = #{depNo},
+                    </if>
+                    <if test="depName != null">
+                        dep_name = #{depName},
+                    </if>
+                    <if test="pushTime != null">
+                        push_time = #{pushTime},
+                    </if>
+                    <if test="pushType != null">
+                        push_type = #{pushType},
+                    </if>
+                    <if test="isPushToDd != null">
+                        is_push_to_dd = #{isPushToDd},
+                    </if>
+                    <if test="url != null">
+                        url = #{url},
+                    </if>
+                    <if test="urlParams != null">
+                        url_params = #{urlParams},
+                    </if>
+                    <if test="templateTag != null">
+                        template_tag = #{templateTag},
+                    </if>
+                    <if test="requestId != null">
+                        request_id = #{requestId},
+                    </if>
+                    <if test="outId != null">
+                        out_id = #{outId},
+                    </if>
+                    <if test="eventType != null">
+                        event_type = #{eventType},
+                    </if>
+        </trim>
+        <where>
+                    and id = #{id}
+        </where>
+    </update>
+
+        <delete id="deleteBatchIds" parameterType="java.util.List">
+            delete from dp_internal_message_send_detail
+            where
+                    id
+            in(
+            <foreach collection="list" item="item" index="index" separator=",">
+                #{item}
+            </foreach>
+            )
+        </delete>
+
+        <select id="selectById" resultMap="BaseResultMap">
+            select
+            <trim prefix="" suffix="" suffixOverrides=",">
+                    id,
+                    detail_no,
+                    summary_no,
+                    template_no,
+                    template_title,
+                    template_type,
+                    emp_id,
+                    emp_name,
+                    emp_code,
+                    send_status,
+                    is_read,
+                    msg_content,
+                    ext,
+                    dep_no,
+                    dep_name,
+                    push_time,
+                    push_type,
+                    is_push_to_dd,
+                    url,
+                    url_params,
+                    template_tag,
+                    request_id,
+                    out_id,
+                    event_type,
+            </trim>
+            from dp_internal_message_send_detail
+            <where>
+                        and id = #{id}
+            </where>
+        </select>
+
+        <select id="selectBatchIds" resultMap="BaseResultMap" parameterType="java.util.List">
+            select
+            <trim prefix="" suffix="" suffixOverrides=",">
+                    id,
+                    detail_no,
+                    summary_no,
+                    template_no,
+                    template_title,
+                    template_type,
+                    emp_id,
+                    emp_name,
+                    emp_code,
+                    send_status,
+                    is_read,
+                    msg_content,
+                    ext,
+                    dep_no,
+                    dep_name,
+                    push_time,
+                    push_type,
+                    is_push_to_dd,
+                    url,
+                    url_params,
+                    template_tag,
+                    request_id,
+                    out_id,
+                    event_type,
+            </trim>
+            from dp_internal_message_send_detail
+            <where>
+                        id
+                in(
+                <foreach collection="list" item="item" index="index" separator=",">
+                    #{item}
+                </foreach>
+                )
+            </where>
+        </select>
+
+        <select id="select" resultMap="BaseResultMap">
+            select
+            <trim prefix="" suffix="" suffixOverrides=",">
+                    id,
+                    detail_no,
+                    summary_no,
+                    template_no,
+                    template_title,
+                    template_type,
+                    emp_id,
+                    emp_name,
+                    emp_code,
+                    send_status,
+                    is_read,
+                    msg_content,
+                    ext,
+                    dep_no,
+                    dep_name,
+                    push_time,
+                    push_type,
+                    is_push_to_dd,
+                    url,
+                    url_params,
+                    template_tag,
+                    request_id,
+                    out_id,
+                    event_type,
+            </trim>
+            from dp_internal_message_send_detail
+            <where>
+                    <if test="id != null">
+                        and id = #{id}
+                    </if>
+                    <if test="detailNo != null">
+                        and detail_no = #{detailNo}
+                    </if>
+                    <if test="summaryNo != null">
+                        and summary_no = #{summaryNo}
+                    </if>
+                    <if test="templateNo != null">
+                        and template_no = #{templateNo}
+                    </if>
+                    <if test="templateTitle != null">
+                        and template_title = #{templateTitle}
+                    </if>
+                    <if test="templateType != null">
+                        and template_type = #{templateType}
+                    </if>
+                    <if test="empId != null">
+                        and emp_id = #{empId}
+                    </if>
+                    <if test="empName != null">
+                        and emp_name = #{empName}
+                    </if>
+                    <if test="empCode != null">
+                        and emp_code = #{empCode}
+                    </if>
+                    <if test="sendStatus != null">
+                        and send_status = #{sendStatus}
+                    </if>
+                    <if test="isRead != null">
+                        and is_read = #{isRead}
+                    </if>
+                    <if test="msgContent != null">
+                        and msg_content = #{msgContent}
+                    </if>
+                    <if test="ext != null">
+                        and ext = #{ext}
+                    </if>
+                    <if test="depNo != null">
+                        and dep_no = #{depNo}
+                    </if>
+                    <if test="depName != null">
+                        and dep_name = #{depName}
+                    </if>
+                    <if test="pushTime != null">
+                        and push_time = #{pushTime}
+                    </if>
+                    <if test="pushType != null">
+                        and push_type = #{pushType}
+                    </if>
+                    <if test="isPushToDd != null">
+                        and is_push_to_dd = #{isPushToDd}
+                    </if>
+                    <if test="url != null">
+                        and url = #{url}
+                    </if>
+                    <if test="urlParams != null">
+                        and url_params = #{urlParams}
+                    </if>
+                    <if test="templateTag != null">
+                        and template_tag = #{templateTag}
+                    </if>
+                    <if test="requestId != null">
+                        and request_id = #{requestId}
+                    </if>
+                    <if test="outId != null">
+                        and out_id = #{outId}
+                    </if>
+                    <if test="eventType != null">
+                        and event_type = #{eventType}
+                    </if>
+            </where>
+        </select>
+
+</mapper>
