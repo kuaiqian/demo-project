@@ -1,7 +1,7 @@
 package com.duobaoyu.demoproject.service;
 
 /**
- * demo服务
+ * demo服务,描述清楚接口作用
  *
  * @author chengchen
  * @version 1.0
@@ -10,8 +10,18 @@ package com.duobaoyu.demoproject.service;
 public interface DemoService {
 
     /**
-     *  demo 方法
-     * @param demo
+     * 方法描述信息
+     * 
+     * @param demo 参数说明
+     *
      */
-     void doDemo(String demo);
+    void doDemo(Object demo);
+
+    /**
+     * 方法描述信息
+     * 
+     * @param demo 参数说明
+     * @return 返回值说明
+     */
+    String getDemo(Object demo);
 }

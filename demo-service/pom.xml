@@ -25,8 +25,8 @@
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-
         <!-- 二方库-->
+
         <dependency>
             <groupId>com.duobaoyu.middleware</groupId>
             <artifactId>repository</artifactId>
@@ -38,7 +38,6 @@
         </dependency>
 
         <!-- 三方库 -->
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

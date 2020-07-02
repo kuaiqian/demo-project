@@ -19,6 +19,13 @@ public enum ErrorCodesEnum {
     RECIEVE_PERSON_EMPTY("MS1003","消息接收人不能为空"),
     DINGDING_USER_ID_EMPTY("MS1004","钉钉人员信息为空"),
     REQUEST_CHANNEL_ERROR("MS1005","渠道异常"),
+    REMOTE_SERVICE_ERROR("MS1006","远程服务异常"),
+
+    PARAMS_VALIAD_ERROR("MS9999","请求参数校验错误"),
+    REQUEST_METHOD_ERROR("MS9998","请求方式错误"),
+    PARAM_TYPE_TRANSFORM_ERROR("MS9997","参数类型转换错误"),
+    ILLEGAL_ARGUMENT("MS9996","参数非法"),
+    REQUEST_BIND_ERROR("MS9995","参数绑定错误"),
 
 
     ;
