@@ -1,14 +1,16 @@
 package com.duobaoyu.demoproject.controller;
 
+import org.springframework.web.bind.annotation.*;
+
 import com.duobaoyu.demoproject.model.params.SmsTemplateQueryParamDto;
 import com.duobaoyu.demoproject.model.result.PageResultDto;
 import com.duobaoyu.demoproject.model.result.SmsTemplateDto;
 import com.duobaoyu.demoproject.util.LogUtil;
 import com.duobaoyu.middleware.common.Result;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
 
 /**
  * demo API
@@ -32,12 +34,24 @@ public class DemoController {
         return Result.success().data(new PageResultDto<SmsTemplateDto>()).build();
     }
 
-
-    @PostMapping("/templates/add")
+    @PostMapping("/templates")
     @ApiOperation("新增模板")
-    public Result<PageResultDto<SmsTemplateDto>>
-        addTemplate(@RequestBody SmsTemplateDto smsTemplateResultDto) {
+    public Result<Boolean> addTemplate(@RequestBody SmsTemplateDto smsTemplateResultDto) {
         LogUtil.param(smsTemplateResultDto);
-        return Result.success().data(new PageResultDto<SmsTemplateDto>()).build();
+        return Result.success().data(Boolean.TRUE).build();
+    }
+
+    @DeleteMapping("/templates/{id}")
+    @ApiOperation("删除模板")
+    public Result<Boolean> deleteTemplate(@PathVariable("id") Integer id) {
+        return Result.success().data(Boolean.TRUE).build();
+    }
+
+    @PutMapping("/templates/{id}")
+    @ApiOperation("更新模板")
+    public Result<Boolean> updateTemplate(@PathVariable("id") Integer id,
+        SmsTemplateDto smsTemplateResultDto) {
+        LogUtil.param(smsTemplateResultDto);
+        return Result.success().data(Boolean.TRUE).build();
     }
 }
