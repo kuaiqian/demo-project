@@ -16,7 +16,6 @@ import lombok.extern.slf4j.Slf4j;
  * demo API
  * 
  * @author chengchen
- * @version 1.0
  * @date 2020/7/1 15:28
  */
 @CrossOrigin(origins = "*")
