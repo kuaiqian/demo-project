@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @ApiModel(value = "模板对象")
-public class SmsTemplateResultDto extends Page {
+public class SmsTemplateDto extends Page {
 
         private static final long serialVersionUID=1L;
 
