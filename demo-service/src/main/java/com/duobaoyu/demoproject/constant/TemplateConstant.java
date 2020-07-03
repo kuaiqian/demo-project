@@ -9,6 +9,8 @@ package com.duobaoyu.demoproject.constant;
  */
 public class TemplateConstant {
 
-    //XXXX
+    /**
+     *  XXXX 短信长度
+     */
     public final static int SMS_ONE_LENGTH = 70;
 }

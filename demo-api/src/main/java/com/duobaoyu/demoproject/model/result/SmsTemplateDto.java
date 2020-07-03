@@ -3,7 +3,13 @@ package com.duobaoyu.demoproject.model.result;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-
+/**
+ * XXXX类说明
+ *
+ * @author chengchen
+ * @version 1.0
+ * @date 2020/7/3 17:31
+ */
 @Data
 @ApiModel(value = "模板对象")
 public class SmsTemplateDto extends Page {

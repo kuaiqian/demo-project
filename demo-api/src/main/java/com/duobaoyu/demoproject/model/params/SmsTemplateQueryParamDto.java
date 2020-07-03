@@ -9,7 +9,11 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * 短信模板查询条件
+ * XXXXX类说明
+ *
+ * @author chengchen
+ * @version 1.0
+ * @date 2020/7/3 17:31
  */
 @Data
 @ApiModel(value = "查询短信模板请求参数")
