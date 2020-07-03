@@ -21,7 +21,7 @@ public interface DemoService {
      * 方法描述信息
      * 
      * @param demo 参数说明
-     * @return 返回值说明
+     * @return 返回值说明,什么时候返回空值等
      */
     String getDemo(Object demo);
 }

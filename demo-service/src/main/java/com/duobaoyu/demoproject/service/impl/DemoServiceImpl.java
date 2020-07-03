@@ -2,6 +2,7 @@ package com.duobaoyu.demoproject.service.impl;
 
 import java.util.Objects;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,10 +41,18 @@ public class DemoServiceImpl implements DemoService {
                 ErrorCodesEnum.TEMPLATE_NO_NUll.getMessage());
         }
 
+        if (StringUtils.length(demo.toString())>3) {
+            // 预检查业务异常，需要打印日志
+            log.warn("XXX错误：{}，{}",ErrorCodesEnum.TEMPLATE_NO_NUll.getCode(),ErrorCodesEnum.TEMPLATE_NO_NUll.getMessage());
+            throw new AppBizException(ErrorCodesEnum.TEMPLATE_NO_NUll.getCode(),
+                    ErrorCodesEnum.TEMPLATE_NO_NUll.getMessage());
+        }
+
         try {
             // feign调用或者与外部系统交互时，打印请求和相应的关键参数
             log.info("请求demoCenter参数：{}", demo);
             Result<Void> result = demoCenterService.getByDemo(demo);
+            log.info("请求demoCenter结果：{}", JSON.toJSONString(result));
 
             // result 结果为空,是否需要转化为业务异常
             if (result == null) {
@@ -56,8 +65,6 @@ public class DemoServiceImpl implements DemoService {
             if (result != null && result.isSuccess()) {
                 // do something 成功处理逻辑
             } else {
-                // 打印失败返回结果
-                log.info("请求demoCenter结果：{}", JSON.toJSONString(result));
                 //do something  失败处理逻辑
             }
         } catch (RuntimeException e) {
