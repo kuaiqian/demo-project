@@ -28,7 +28,7 @@ public class ErrorUtil {
             // 自定义业务异常，不需要打印错误堆栈信息，直接返回处理结果
             // 对于可以捕获的框架异常，可以按需转成自定义异常抛出来
             if (ex instanceof AppBizException) {
-                return Result.success().code(((AppBizException)ex).getCode()).message(ex.getMessage()).build();
+                return Result.failure().code(((AppBizException)ex).getCode()).message(ex.getMessage()).build();
             }
             throw ex;
         } catch (MethodArgumentNotValidException e) {
