@@ -3,7 +3,7 @@ package com.duobaoyu.demo.domain;
 import lombok.Data;
 
 /**
- * token 请求对象
+ * token 请求对象,接口请求序列化对象
  *
  * @author chengchen
  * @date 2020/8/25

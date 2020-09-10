@@ -21,21 +21,43 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Service
 @Slf4j
-public class DemoIntegrationServiceImpl implements DemoCenterIntegrationService {
+public class DemoIntegrationServiceImpl implements DemoCenterIntegrationService<DemoRequest, DemoResponse> {
 
     @Autowired
     private DemoCenterService demoCenterService;
 
     @Override
-    public Result<DemoResponse> getByDemo(DemoRequest demo) {
+    public Result<DemoResponse> getByDemoWithResult(DemoRequest demo) {
+        Result<DemoResponse> demoResponseResult = getDemoResponseResult(demo);
+        return demoResponseResult;
+    }
+
+    @Override
+    public DemoResponse getByDemo(DemoRequest demo) {
+        Result<DemoResponse> byDemoWithResult = getByDemoWithResult(demo);
+        if (byDemoWithResult != null) {
+            return byDemoWithResult.getData();
+        }
+        return null;
+    }
+
+    /**
+     * 获取demo结果
+     *
+     * @param demo
+     *            请求参数对象
+     * @return 返回结果
+     */
+    private Result<DemoResponse> getDemoResponseResult(DemoRequest demo) {
         try {
-            if(log.isInfoEnabled()){
-                //请求出口关键日志，注意日志大小和敏感字段（如对象中存在大的集合字段，建议覆写请求对象toString方法，只答应关键字段；敏感字段如卡号等 要做脱敏处理）
+            if (log.isInfoEnabled()) {
+                // 请求出口关键日志，注意日志大小和敏感字段（如对象中存在大的集合字段，建议覆写请求对象toString方法，只答应关键字段；敏感字段如卡号等 要做脱敏处理）
                 log.info("请求demoCenter参数：{}", JSON.toJSONString(demo));
             }
-            Result<DemoResponse> demoResponseResult = demoCenterService.getByDemo(demo);
-            if(log.isInfoEnabled()){
-                //响应结果入口关键日志，注意日志大小和敏感字段（如对象中存在大的集合字段，建议覆写请求对象toString方法，只答应关键字段；敏感字段如卡号等 要做脱敏处理）
+            DemoRequest demoRequest = new DemoRequest();
+            Result<DemoResponse> demoResponseResult = demoCenterService.getByDemo(demoRequest);
+            if (log.isInfoEnabled()) {
+                // 响应结果入口关键日志，注意日志大小和敏感字段（如对象中存在大的集合字段，建议覆写请求对象toString方法，只答应关键字段；敏感字段如卡号等 要做脱敏处理）
                 log.info("请求demoCenter结果：{}", JSON.toJSONString(demoResponseResult));
             }
             if (demoResponseResult == null) {

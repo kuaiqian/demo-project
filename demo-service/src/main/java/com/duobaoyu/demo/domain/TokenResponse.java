@@ -3,7 +3,7 @@ package com.duobaoyu.demo.domain;
 import lombok.Data;
 
 /**
- * token结果对象
+ * token结果对象，接口返回结果的反序列化对象
  *
  * @author chengchen
  * @date 2020/8/25
