@@ -6,5 +6,5 @@ package com.duobaoyu.demo.constant;
  * @author chengchen
  * @date 2020/7/3 9:51
  */
-public class Constant {
+public class DemoConstant {
 }
